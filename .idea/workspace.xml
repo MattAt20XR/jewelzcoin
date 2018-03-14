@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="litecoin" targetName="litecoin" />
+      <config projectName="jewelzcoin" targetName="jewelzcoin" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -45,8 +45,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="603" />
-    <option name="y" value="419" />
+    <option name="x" value="1792" />
+    <option name="y" value="633" />
     <option name="width" value="1893" />
     <option name="height" value="1306" />
   </component>
@@ -69,8 +69,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="litecoin" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="litecoin" type="462c0819:PsiDirectoryNode" />
+              <item name="jewelzcoin" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="jewelzcoin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -94,16 +94,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.litecoin">
+  <component name="RunManager" selected="Application.jewelzcoin">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
     </configuration>
-    <configuration name="litecoin" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="litecoin" TARGET_NAME="litecoin" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="litecoin" RUN_TARGET_NAME="litecoin">
+    <configuration name="jewelzcoin" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="jewelzcoin" TARGET_NAME="jewelzcoin" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="jewelzcoin" RUN_TARGET_NAME="jewelzcoin">
       <envs />
     </configuration>
     <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
-      <item index="1" class="java.lang.String" itemvalue="Application.litecoin" />
+      <item index="1" class="java.lang.String" itemvalue="Application.jewelzcoin" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -120,15 +120,15 @@
       <option name="presentableId" value="Default" />
       <updated>1520857878322</updated>
       <workItem from="1520857880293" duration="248000" />
-      <workItem from="1520858198849" duration="166000" />
+      <workItem from="1520858198849" duration="565000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="414000" />
+    <option name="totallyTimeSpent" value="813000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="603" y="419" width="1893" height="1306" extended-state="0" />
+    <frame x="1792" y="633" width="1893" height="1306" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1848917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
