@@ -1,0 +1,57 @@
+https://vcoin-project.github.io/cloning-litecoin/
+
+4b. Copy and Replace Litecoin
+Using your test editor, search out and replace all instances of “Litecoin” with “Clonecoin”. Make sure your search is case sensitive and search for all instances, replace “Litecoin” with “Clonecoin”, “litecoin” with “clonecoin” etc. Run a search without case sensitivity before continuing to ensure you have all instances.
+
+Litecoin was replaced with JewelzCoin
+litecoin was replaced with jewelzcoin
+
+4c. Copy and Replace LTC.
+Using your test editor, search out and replace all instances of “LTC” with “CLN”.
+
+LTC was replaced with JLZ.
+JLZ for Jewelz
+
+All compiled
+Test results
+
+FAIL!  : URITests::uriTests() 'rv.address == QString("LEr4HnaeFWYhBmGxCfP2po1NPRueIk8kM2")' returned FALSE. ()
+   Loc: [qt/test/uritests.cpp(55)]
+
+Need to look into the failure.
+
+4d. Change rpc and port numbers.
+Search for an appropriate port and rpc number http://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers.
+Litecoin uses port 9333 testnet 19333, rpcport 9332 testnet 19332. We will change them to port 10333 testnet 11333, rpcport 10332 testnet 11332
+
+These are most likely not the final ports.
+9333 -> 10333
+19333 -> 20333
+19332 -> 20332
+
+Compiles
+
+Test results
+
+FAIL!  : URITests::uriTests() 'rv.address == QString("LEr4HnaeFWYhBmGxCfP2po1NPRueIk8kM2")' returned FALSE. ()
+   Loc: [qt/test/uritests.cpp(55)]
+
+Need to look into the failure.
+
+
+
+4e. Change starting letter for addresses.
+In this case we change the 48 to 28, therefore all addresses will start with “C”.
+
+Not sure what to change here.
+See the link.
+https://github.com/HowToCloneAnAltcoin/Clonecoin/commit/d0621b86a358e93495658d564640144458aab8ee
+
+4f. Update client version number.
+
+Since its really a fork of Litecoin we will bring the version numbers up to 1.0.0.0.
+
+https://github.com/HowToCloneAnAltcoin/Clonecoin/commit/95d0bef6e6a7bf27f3ed6d8153fccf8275524ba9
+
+
+
