@@ -16,6 +16,7 @@ class DecodeScriptTest(BitcoinTestFramework):
 
     def decodescript_script_sig(self):
         signature = '304502207fa7a6d1e0ee81132a269ad84e68d695483745cde8b541e3bf630749894e342a022100c1f7ab20e13e22fb95281a870f3dcf38d782e53023ee313d741ad0cfbc0c509001'
+        ## MDB_4e should 48 be changed to 42 J
         push_signature = '48' + signature
         public_key = '03b0da749730dc9b4b1f4a14d6902877a92541f5368778853d9c4a0cb7802dcfb2'
         push_public_key = '21' + public_key
@@ -83,6 +84,7 @@ class DecodeScriptTest(BitcoinTestFramework):
         # use a signature look-alike here to make sure that we do not decode random data as a signature.
         # this matters if/when signature sighash decoding comes along.
         # would want to make sure that no such decoding takes place in this case.
+        ## MDB_4e should 48 be changed to 42 J
         signature_imposter = '48304502207fa7a6d1e0ee81132a269ad84e68d695483745cde8b541e3bf630749894e342a022100c1f7ab20e13e22fb95281a870f3dcf38d782e53023ee313d741ad0cfbc0c509001'
         # OP_RETURN <data>
         rpc_result = self.nodes[0].decodescript('6a' + signature_imposter)
@@ -141,11 +143,13 @@ class DecodeScriptTest(BitcoinTestFramework):
         # some more full transaction tests of varying specific scriptSigs. used instead of
         # tests in decodescript_script_sig because the decodescript RPC is specifically
         # for working on scriptPubKeys (argh!).
+        ## MDB_4e should 48 be changed to 42 J
         push_signature = bytes_to_hex_str(txSave.vin[0].scriptSig)[2:(0x48*2+4)]
         signature = push_signature[2:]
         der_signature = signature[:-2]
         signature_sighash_decoded = der_signature + '[ALL]'
         signature_2 = der_signature + '82'
+        ## MDB_4e should 48 be changed to 42 J
         push_signature_2 = '48' + signature_2
         signature_2_sighash_decoded = der_signature + '[NONE|ANYONECANPAY]'
 
