@@ -1,16 +1,15 @@
 https://vcoin-project.github.io/cloning-litecoin/
 
 4b. Copy and Replace Litecoin
-Using your test editor, search out and replace all instances of “Litecoin” with “Clonecoin”. Make sure your search is case sensitive and search for all instances, replace “Litecoin” with “Clonecoin”, “litecoin” with “clonecoin” etc. Run a search without case sensitivity before continuing to ensure you have all instances.
 
 Litecoin was replaced with JewelzCoin
 litecoin was replaced with jewelzcoin
 
 4c. Copy and Replace LTC.
-Using your test editor, search out and replace all instances of “LTC” with “CLN”.
-
 LTC was replaced with JLZ.
 JLZ for Jewelz
+
+Test after 4b & 4c changes
 
 All compiled
 Test results
@@ -21,16 +20,16 @@ FAIL!  : URITests::uriTests() 'rv.address == QString("LEr4HnaeFWYhBmGxCfP2po1NPR
 Need to look into the failure.
 
 4d. Change rpc and port numbers.
-Search for an appropriate port and rpc number http://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers.
-Litecoin uses port 9333 testnet 19333, rpcport 9332 testnet 19332. We will change them to port 10333 testnet 11333, rpcport 10332 testnet 11332
 
-These are most likely not the final ports.
+Changed the ports by adding 1000 to each one. These are most likely not the final values.
+
 9333 -> 10333
 19333 -> 20333
 19332 -> 20332
 
-Compiles
+Test AFTER 4d changes
 
+All compiled
 Test results
 
 FAIL!  : URITests::uriTests() 'rv.address == QString("LEr4HnaeFWYhBmGxCfP2po1NPRueIk8kM2")' returned FALSE. ()
@@ -41,17 +40,81 @@ Need to look into the failure.
 
 
 4e. Change starting letter for addresses.
-In this case we change the 48 to 28, therefore all addresses will start with “C”.
 
-Not sure what to change here.
-See the link.
-https://github.com/HowToCloneAnAltcoin/Clonecoin/commit/d0621b86a358e93495658d564640144458aab8ee
+Changed from 48 to 42 ‘j’.
+
+// There were some issues. Search code base for MDB_4e
+
 
 4f. Update client version number.
 
-Since its really a fork of Litecoin we will bring the version numbers up to 1.0.0.0.
+version number is now 0.0.1.0
+Release is now false
+Copyright holder is now My Dream Interactive
 
-https://github.com/HowToCloneAnAltcoin/Clonecoin/commit/95d0bef6e6a7bf27f3ed6d8153fccf8275524ba9
+
+Failure after 4.E and 4.F
+
+Making all in doc/man
+make[1]: Nothing to be done for `all'.
+make[1]: Nothing to be done for `all-am'.
+mac-pro-2:jewelzcoin mbirder$ make check
+Making check in src
+/Library/Developer/CommandLineTools/usr/bin/make  check-TESTS check-local
+FAIL: test/test_jewelzcoin
+FAIL: qt/test/test_jewelzcoin-qt
+============================================================================
+Testsuite summary for JewelzCoin Core 0.0.1
+============================================================================
+# TOTAL: 2
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  2
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See src/test-suite.log
+Please report to https://github.com/jewelzcoin-project/jewelzcoin/issues
+============================================================================
+make[4]: *** [test-suite.log] Error 1
+make[3]: *** [check-TESTS] Error 2
+make[2]: *** [check-am] Error 2
+make[1]: *** [check-recursive] Error 1
+make: *** [check-recursive] Error 1
+
+4g. Change Litecoin example addresses to Clonecoin Addresses.
+
+Couldn’t find where to make the changes.
+
+4h. Change char pchMessageStart and ParseHex.
+
+Not sure what to do. 
+
+4i. Change alert keys
+
+Doesn’t look like anything was changed.
+
+4j. Remove Merkel root and Genesis Block.
+
+It doesn’t appear to be an issues. LiteCoin doesn’t have a main.cpp/
+
+4k. Remove Nonce and testnet genesis.
+
+It doesn’t appear to be an issues. LiteCoin doesn’t have a main.cpp/
+
+4l. Add Epochtime and Timestamp.
+
+Again there isn’t a main.cpp file to change. However, there is test_main.cpp and test_bitcoin. There maybe work there.
+
+4m. Fixing the checkpoints.
+
+Doesn’t appear to be any work to be performed.
+
+4n. Change max money supply and coinbase maturity.
+
+Search for MDB_4n to find notes on this item.
+
 
 
 
