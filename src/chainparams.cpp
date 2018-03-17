@@ -9,6 +9,7 @@
 #include "tinyformat.h"
 #include "util.h"
 #include "utilstrencodings.h"
+#include "jewelzcoinconstants.h"
 
 #include <assert.h>
 
@@ -32,6 +33,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     genesis.vtx.push_back(MakeTransactionRef(std::move(txNew)));
     genesis.hashPrevBlock.SetNull();
     genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
+    
     return genesis;
 }
 
@@ -70,6 +72,8 @@ void CChainParams::UpdateVersionBitsParameters(Consensus::DeploymentPos d, int64
  * + Contains no strange transactions
  */
 
+#define DEFAULT_POW_TIMESPACE 30
+
 class CMainParams : public CChainParams {
 public:
     CMainParams() {
@@ -80,7 +84,9 @@ public:
         consensus.BIP65Height = 918684; // bab3041e8977e0dc3eeff63fe707b92bde1dd449d8efafb248c27c8264cc311a
         consensus.BIP66Height = 811879; // 7aceee012833fa8952f8835d8b1b3ae233cd6ab08fdb27a771d2bd7bdc491894
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); 
-        consensus.nPowTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
+        // MDB_4p Changes 3.5 * 24 * 60 * 60 to 30.
+        consensus.nPowTargetTimespan = DEFAULT_POW_TIMESPACE; // 3.5 days
+        // MDB_4o  to change the block times
         consensus.nPowTargetSpacing = 2.5 * 60;
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
@@ -118,7 +124,8 @@ public:
         nDefaultPort = 10333;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1317972665, 2084524493, 0x1e0ffff0, 1, 50 * COIN);
+        // MDB_4q default subsidy.
+        genesis = CreateGenesisBlock(1317972665, 2084524493, 0x1e0ffff0, 1, DEFAULT_SUBSIDY);
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2"));
         assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
@@ -188,7 +195,8 @@ public:
         consensus.BIP65Height = 76; // 8075c771ed8b495ffd943980a95f702ab34fce3c8c54e379548bda33cc8c0573
         consensus.BIP66Height = 76; // 8075c771ed8b495ffd943980a95f702ab34fce3c8c54e379548bda33cc8c0573
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
+          // MDB_4p Changes 3.5 * 24 * 60 * 60 to 30.
+        consensus.nPowTargetTimespan = DEFAULT_POW_TIMESPACE; // 3.5 days
         consensus.nPowTargetSpacing = 2.5 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
@@ -221,7 +229,8 @@ public:
         nDefaultPort = 19335;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1486949366, 293345, 0x1e0ffff0, 1, 50 * COIN);
+        // MDB_4q default subsidy.
+        genesis = CreateGenesisBlock(1486949366, 293345, 0x1e0ffff0, 1, DEFAULT_SUBSIDY);
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0x4966625a4b2851d9fdee139e56211a0d88575f59ed816ff5e6a63deb4e3e29a0"));
         assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
@@ -275,7 +284,8 @@ public:
         consensus.BIP65Height = 1351; // BIP65 activated on regtest (Used in rpc activation tests)
         consensus.BIP66Height = 1251; // BIP66 activated on regtest (Used in rpc activation tests)
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 3.5 * 24 * 60 * 60; // two weeks
+        // MDB_4p Chan`ges 3.5 * 24 * 60 * 60 to 30.
+        consensus.nPowTargetTimespan = DEFAULT_POW_TIMESPACE; // 3.5 days
         consensus.nPowTargetSpacing = 2.5 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
@@ -304,7 +314,8 @@ public:
         nDefaultPort = 19444;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1296688602, 0, 0x207fffff, 1, 50 * COIN);
+        // MDB_4q default subsidy.
+        genesis = CreateGenesisBlock(1296688602, 0, 0x207fffff, 1, DEFAULT_SUBSIDY);
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0x530827f38f93b43ed12af0b3ad25a288dc02ed74d6d7857862df51fc56c416f9"));
         assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));

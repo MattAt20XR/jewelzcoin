@@ -63,6 +63,7 @@ src/qt/test/moc*.cpp
 *.log
 *.trs
 *.dmg
+*.DS_Store
 
 *.json.h
 *.raw.h

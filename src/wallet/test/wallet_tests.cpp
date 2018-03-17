@@ -302,8 +302,9 @@ BOOST_AUTO_TEST_CASE(coin_selection_tests)
 
             // picking 50 from 100 coins doesn't depend on the shuffle,
             // but does depend on randomness in the stochastic approximation code
-            BOOST_CHECK(testWallet.SelectCoinsMinConf(50 * COIN, 1, 6, 0, vCoins, setCoinsRet , nValueRet));
-            BOOST_CHECK(testWallet.SelectCoinsMinConf(50 * COIN, 1, 6, 0, vCoins, setCoinsRet2, nValueRet));
+            // MDB_4q default subsidy.
+            BOOST_CHECK(testWallet.SelectCoinsMinConf(DEFAULT_SUBSIDY, 1, 6, 0, vCoins, setCoinsRet , nValueRet));
+            BOOST_CHECK(testWallet.SelectCoinsMinConf(DEFAULT_SUBSIDY, 1, 6, 0, vCoins, setCoinsRet2, nValueRet));
             BOOST_CHECK(!equal_sets(setCoinsRet, setCoinsRet2));
 
             int fails = 0;
@@ -400,7 +401,8 @@ BOOST_FIXTURE_TEST_CASE(rescan, TestChain100Setup)
         CWallet wallet;
         AddKey(wallet, coinbaseKey);
         BOOST_CHECK_EQUAL(oldTip, wallet.ScanForWalletTransactions(oldTip));
-        BOOST_CHECK_EQUAL(wallet.GetImmatureBalance(), 50 * COIN);
+         // MDB_4q default subsidy.
+        BOOST_CHECK_EQUAL(wallet.GetImmatureBalance(), DEFAULT_SUBSIDY);
     }
 
     // Verify importmulti RPC returns failure for a key whose creation time is
@@ -648,7 +650,8 @@ BOOST_FIXTURE_TEST_CASE(ListCoins, ListCoinsTestingSetup)
     BOOST_CHECK_EQUAL(list.begin()->second.size(), 1);
 
     // Check initial balance from one mature coinbase transaction.
-    BOOST_CHECK_EQUAL(50 * COIN, wallet->GetAvailableBalance());
+    // MDB_4q default subsidy.
+    BOOST_CHECK_EQUAL(DEFAULT_SUBSIDY, wallet->GetAvailableBalance());
 
     // Add a transaction creating a change address, and confirm ListCoins still
     // returns the coin associated with the change address underneath the
